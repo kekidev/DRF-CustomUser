@@ -50,6 +50,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=False)
     
     objects = CustomAccountManager()
+    class Meta:
+        ordering = ['-created_at']
     
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
